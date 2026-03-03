@@ -1,0 +1,37 @@
+1.
+Pesquise sobre os tipos de redes a seguir:
+LAN
+WAN
+MAN
+PAN
+CAN
+
+-LAN (Local Area Network) 
+Rede local que conecta dispositivos em uma área limitada, como uma casa ou escritório, com alcance típico de até alguns quilômetros.
+
+-WAN (Wide Area Network)
+ Rede de longa distância que conecta múltiplas redes LAN e MAN, abrangendo grandes áreas geográficas, países, continentes ou globalmente.
+
+-MAN (Metropolitan Area Network) 
+Rede que cobre uma cidade ou região metropolitana, geralmente com alcance de até cerca de 100 quilômetros.
+
+-PAN (Personal Area Network)
+Rede pessoal de curto alcance, normalmente até cerca de 10 metros, usada para conectar dispositivos próximos, como fones Bluetooth e smartphones.
+
+-CAN (Campus Area Network)
+Rede que conecta várias redes dentro de um campus ou complexo, com alcance maior que LAN, tipicamente de 1 a 5 quilômetros.
+
+
+
+2.
+Ordene as redes acima com base em seus alcances
+
+1.PAN (até 10 metros)
+
+2.LAN (até alguns quilômetros)
+
+3.CAN (1 a 5 quilômetros)
+
+4.MAN (até 100 quilômetros)
+
+5.WAN (cobertura global)
