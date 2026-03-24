@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.2">
+    <attributes>
+        <attribute name="name" value="Atividade-Anderson-Fluxograma-Esqueci-minha-senha"/>
+        <attribute name="authors" value="F&#225;bio"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2026-03-17 11:49:56 "/>
+        <attribute name="created" value="RsOhYmlvO0RFU0tUT1AtRUpVUzFRSzsyMDI2LTAzLTE3OyIwMTo0NDo1NCAiOzI5MDI="/>
+        <attribute name="edited" value="RsOhYmlvO0RFU0tUT1AtRUpVUzFRSzsyMDI2LTAzLTE3OyIxMTo0OTo1NiAiOzE7MzAxOA=="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="emailSys" type="String" array="False" size=""/>
+            <assign variable="emailSys" expression="&quot;teste@email.com&quot;"/>
+            <output expression="&quot;Digite seu E-mail: &quot;" newline="True"/>
+            <declare name="emailDig" type="String" array="False" size=""/>
+            <input variable="emailDig"/>
+            <if expression="emailDig == emailSys">
+                <then>
+                    <output expression="&quot;Digite o Codigo do SMS&quot;" newline="True"/>
+                    <declare name="cod" type="Integer" array="False" size=""/>
+                    <assign variable="cod" expression="123456"/>
+                    <output expression="&quot;Qual o Cod?&quot;" newline="True"/>
+                    <declare name="codDig" type="Integer" array="False" size=""/>
+                    <input variable="codDig"/>
+                    <if expression="cod == codDig">
+                        <then>
+                            <output expression="&quot;Escreva sua nova Senha&quot;" newline="True"/>
+                            <declare name="novaSenha" type="String" array="False" size=""/>
+                            <input variable="novaSenha"/>
+                            <output expression="&quot;Senha atualizada com Sucesso, sua nova senha &#233;: &quot; &amp; novaSenha" newline="True"/>
+                        </then>
+                        <else>
+                            <output expression="&quot;Codigo errado&quot;" newline="True"/>
+                        </else>
+                    </if>
+                </then>
+                <else>
+                    <output expression="&quot;Erro&quot;" newline="True"/>
+                </else>
+            </if>
+        </body>
+    </function>
+</flowgorithm>
