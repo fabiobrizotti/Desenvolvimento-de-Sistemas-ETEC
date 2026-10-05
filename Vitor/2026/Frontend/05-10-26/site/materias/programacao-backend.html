@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Programação Back-End — Revisão</title>
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+<header class="topo">
+  <h1>Programação Back-End</h1>
+  <p><a class="voltar" href="../index.html">← todas as matérias</a> · Questões 10, 11, 13</p>
+</header>
+<main>
+<!-- fonte: transcrição colada na conversa em 2026-10-05 -->
+
+<article class="questao" id="q10">
+  <h2>Questão 10</h2>
+  <blockquote class="apoio">"HTTP é um protocolo cliente-servidor no qual o cliente envia uma requisição composta por método, URI e cabeçalhos, e o servidor processa essa solicitação retornando uma mensagem de resposta com um código de status e o recurso solicitado."<br><br>Fonte: https://developer.mozilla.org/pt-BR/docs/Web/HTTP/Guides/Overview/html.</blockquote>
+  <p class="enunciado">Durante os testes de homologação de um sistema de gerenciamento de entregas, diversos dispositivos enviam solicitações ao servidor simultaneamente. A análise do fluxo HTTP é necessária para compreender a sequência de comunicação e identificar possíveis pontos de atraso no processamento das solicitações. Considerando a arquitetura cliente-servidor e o protocolo HTTP descritos no texto, analise a situação e assinale a alternativa que representa a sequência correta do fluxo básico de processamento da comunicação.</p>
+  <ol class="alternativas" type="A">
+    <li>O cliente envia a requisição HTTP, o servidor processa a solicitação e o servidor envia a resposta com o código de status.</li>
+    <li>O servidor envia a resposta inicial, o cliente processa a solicitação e o servidor confirma o recebimento da mensagem.</li>
+    <li>O servidor processa o recurso local, o cliente envia a requisição de confirmação e o servidor recebe o código de status.</li>
+    <li>O cliente recebe a resposta da aplicação, o servidor envia a requisição de validação e o cliente processa o recurso final.</li>
+    <li>O servidor recebe a resposta do cliente, o cliente processa o recurso requisitado e o servidor envia a requisição de encerramento.</li>
+  </ol>
+  <details class="resolucao">
+    <summary>Ver resolução</summary>
+    <p><strong>Alternativa correta: A.</strong> O ciclo fundamental do protocolo HTTP é estritamente baseado no padrão requisição-resposta iniciado pelo cliente: o cliente envia a mensagem com o método e cabeçalhos, o servidor recebe, executa o processamento interno e devolve uma resposta com o código de estado (status code) e o corpo de dados.</p>
+    <p class="porque">Porquê: em HTTP quem inicia é sempre o cliente; as demais alternativas invertem a ordem (servidor respondendo antes de receber).</p>
+  </details>
+</article>
+
+<article class="questao" id="q11">
+  <h2>Questão 11</h2>
+  <blockquote class="apoio">"Falhas no registro de logs e no monitoramento permitem que ataques passem despercebidos. As APIs devem garantir o registro de eventos de segurança, tais como falhas de autenticação e erros de validação, integrando os logs a sistemas de monitoramento contínuo para detecção de comportamentos anômalos."<br><br>Fonte: https://owasp.org/API-Security/editions/2019/pt-BR/0xaa-insufficient-logging-monitoring/.</blockquote>
+  <p class="enunciado">Em uma infraestrutura de microsserviços, foram observados picos repentinos no tempo de resposta das requisições e aumento não previsto na taxa de erro 500 em endpoints críticos. A análise centralizada dos registros e a checagem das métricas foram definidas como prioridade para diagnóstico técnico. Com base nas recomendações da OWASP e na situação descrita, analise as condutas apresentadas e assinale a alternativa que especifica a estratégia correta para identificar a origem dos problemas de desempenho e segurança na API.</p>
+  <ol class="alternativas" type="A">
+    <li>Monitorar exclusivamente os indicadores financeiros de conversão, reduzindo o volume de armazenamento dos logs de erro do servidor.</li>
+    <li>Monitorar continuamente os eventos técnicos da API, centralizar os registros de auditoria e configurar alertas automatizados para comportamentos anômalos.</li>
+    <li>Analisar de forma isolada as métricas de espaço em disco no banco de dados, ignorando a taxa de rejeição nas autenticações de usuário.</li>
+    <li>Acompanhar apenas a documentação cadastral das rotas, suspendendo a geração de registros de log para otimizar o tempo de resposta.</li>
+    <li>Registrar apenas as requisições que retornam status de sucesso, descartando registros de erros de validação e falhas de autenticação.</li>
+  </ol>
+  <details class="resolucao">
+    <summary>Ver resolução</summary>
+    <p><strong>Alternativa correta: B.</strong> A diretriz de segurança da OWASP recomenda centralizar logs e métricas de sistema, acompanhando erros técnicos e acionando alertas quando surgem padrões anormais de tráfego ou respostas HTTP 500 repetidas.</p>
+    <p class="porque">Porquê: sem log de erro e sem monitoramento contínuo, ataques e falhas passam despercebidos — as demais alternativas reduzem ou desligam justamente o que permite diagnosticar.</p>
+  </details>
+</article>
+
+<article class="questao" id="q13">
+  <h2>Questão 13</h2>
+  <blockquote class="apoio">O OWASP ZAP (Zed Attack Proxy) permite realizar testes de segurança dinâmicos (DAST) em aplicações web e APIs. Por meio da funcionalidade de importação de definições OpenAPI, a ferramenta pode executar verificações automatizadas nos endpoints mapeados para identificar vulnerabilidades, como falhas de injeção e problemas de controle de acesso.<br><br>Fonte: https://www.zaproxy.org/docs/docker/api-scan/.</blockquote>
+  <p class="enunciado">Antes da liberação em ambiente de produção de uma nova API RESTful de pagamentos, exige-se a realização de testes de segurança automatizados do tipo DAST (Dynamic Application Security Testing) para validar os endpoints expostos contra vulnerabilidades conhecidas da OWASP. Considerando o cenário apresentado e as especificações das ferramentas de teste, analise as opções e assinale a alternativa que indica a ferramenta adequada e a justificativa correta para a realização dessa validação.</p>
+  <ol class="alternativas" type="A">
+    <li>OWASP ZAP, pois realiza testes dinâmicos automatizados varrendo os endpoints mapeados na documentação da API em busca de vulnerabilidades em tempo de execução.</li>
+    <li>Snyk, pois atua como proxy reverso para interceptar conexões de rede e criptografar o tráfego de dados entre o cliente e o servidor.</li>
+    <li>Gulp, pois automatiza o processo de compilação do código e substitui as validações de segurança dos dados recebidos pelos endpoints.</li>
+    <li>Nmap, pois analisa o código-fonte estático para identificar bibliotecas desatualizadas e falhas de sintaxe na linguagem de programação.</li>
+    <li>Postman, pois compila automaticamente os componentes da infraestrutura e elimina as falhas de injeção diretamente no banco de dados.</li>
+  </ol>
+  <details class="resolucao">
+    <summary>Ver resolução</summary>
+    <p><strong>Alternativa correta: A.</strong> O OWASP ZAP atua como scanner DAST enviando requisições contra os endpoints ativos do sistema para detectar falhas em tempo de execução, usando esquemas OpenAPI como guia de rotas.</p>
+    <p class="porque">Porquê: as demais ferramentas têm outro papel (Gulp = build, Nmap = rede/portas, Postman = cliente HTTP) e nenhuma faz varredura DAST guiada por OpenAPI.</p>
+  </details>
+</article>
+
+</main>
+<script src="../theme.js"></script>
+</body>
+</html>

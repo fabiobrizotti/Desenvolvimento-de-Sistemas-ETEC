@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Programação Mobile — Revisão</title>
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+<header class="topo">
+  <h1>Programação Mobile</h1>
+  <p><a class="voltar" href="../index.html">← todas as matérias</a> · Questões 5, 6, 7, 8, 9</p>
+</header>
+<main>
+<!-- fonte: transcrição colada na conversa em 2026-10-05 -->
+
+<article class="questao" id="q5">
+  <h2>Questão 05</h2>
+  <blockquote class="apoio">Durante o desenvolvimento de aplicativos móveis multiplataforma, a equipe de engenharia de software frequentemente enfrenta o desafio de manter a consistência visual e otimizar o tempo de entrega. Para solucionar redundâncias estruturais, os desenvolvedores adotam a criação de blocos de interface independentes que concentram regras de layout e comportamento próprio. Esses elementos modulares podem ser injetados em diferentes telas do sistema com variações mínimas de parâmetros, garantindo que alterações centralizadas reflitam instantaneamente em toda a aplicação sem a necessidade de reescrita de código.<br><br>Fonte: https://developer.android.com/guide/components/fundamentals (adaptado).</blockquote>
+  <p class="enunciado">No contexto do desenvolvimento de interfaces para dispositivos móveis, a utilização de blocos visuais modulares traz agilidade e padronização aos projetos. Com base nos princípios fundamentais de design para a criação de elementos reaproveitáveis, assinale a alternativa que identifica corretamente a principal característica estrutural de um componente reutilizável.</p>
+  <ol class="alternativas" type="A">
+    <li>Executar rotinas complexas de persistência de dados em servidores remotos antes de renderizar qualquer elemento visual na tela do usuário.</li>
+    <li>Apresentar dependência estrita e exclusiva de uma única tela específica do aplicativo, impedindo o uso em múltiplos contextos operacionais.</li>
+    <li>Encapsular a lógica visual e estrutural de forma isolada, permitindo sua aplicação em diferentes contextos por meio de parâmetros customizáveis.</li>
+    <li>Substituir completamente a necessidade de estilização global e de temas visuais, exigindo codificação manual individual para cada novo botão.</li>
+    <li>Alterar dinamicamente a arquitetura de navegação do sistema operacional sempre que uma nova regra de negócio for inserida no código-fonte.</li>
+  </ol>
+  <details class="resolucao">
+    <summary>Ver resolução</summary>
+    <p><strong>Alternativa correta: C.</strong> O isolamento de interface baseia-se no encapsulamento.</p>
+    <p class="porque">Porquê: o componente cuida da própria estrutura visual e do próprio comportamento básico, recebendo dados e configurações via propriedades ou parâmetros para ser reutilizado em qualquer ponto da aplicação.</p>
+  </details>
+</article>
+
+<article class="questao" id="q6">
+  <h2>Questão 06</h2>
+  <blockquote class="apoio">Durante o processo de validação de um aplicativo voltado para a área de saúde, a equipe de qualidade técnica aplicou softwares validadores de código para verificar o contraste de cores e a presença de descrições textuais alternativas nos componentes de interface. Simultaneamente, recrutou um grupo diversificado de pessoas para realizar tarefas práticas de navegação e preenchimento de formulários, observando suas reações, dificuldades e o tempo gasto na execução dos fluxos.<br><br>Fonte: https://rockcontent.com/br/blog/teste-de-usabilidade/ (adaptado).</blockquote>
+  <p class="enunciado">No desenvolvimento de aplicações móveis, a garantia de um produto inclusivo e eficiente exige a aplicação de métodos complementares de avaliação. Considerando as características operacionais dos processos descritos, assinale a alternativa que diferencia corretamente a aplicação de ferramentas automatizadas de acessibilidade e de testes de usabilidade com usuários.</p>
+  <ol class="alternativas" type="A">
+    <li>Os testes de usabilidade servem exclusivamente para mensurar o contraste de elementos visuais por meio de algoritmos, enquanto as ferramentas automatizadas analisam o comportamento emocional dos usuários.</li>
+    <li>As ferramentas automatizadas substituem inteiramente a necessidade de avaliações humanas, ao passo que os testes de usabilidade focam estritamente na validação de códigos binários em servidores de homologação.</li>
+    <li>As ferramentas automatizadas verificam a conformidade do código com diretrizes de acessibilidade técnica, enquanto os testes de usabilidade avaliam a experiência prática e o comportamento de pessoas reais ao interagir com o sistema.</li>
+    <li>As ferramentas automatizadas são aplicadas apenas na fase de concepção visual do projeto, enquanto os testes de usabilidade ocorrem antes da escrita de qualquer linha de código-fonte.</li>
+    <li>Os testes de usabilidade utilizam leitores de tela sintéticos para auditar falhas de sintaxe, enquanto as ferramentas automatizadas dependem de entrevistas qualitativas com o público-alvo.</li>
+  </ol>
+  <details class="resolucao">
+    <summary>Ver resolução</summary>
+    <p><strong>Alternativa correta: C.</strong> Linters e analisadores estáticos verificam regras programáticas e estruturais (como etiquetas e níveis de contraste WCAG).</p>
+    <p class="porque">Porquê: ferramentas automatizadas não captam atrito cognitivo, hesitação ou facilidade de uso real — tarefas atribuídas aos testes práticos com utilizadores.</p>
+  </details>
+</article>
+
+<article class="questao" id="q7">
+  <h2>Questão 07</h2>
+  <blockquote class="apoio">Em ambientes mobile corporativos que operam com conectividade intermitente, a integridade transacional torna-se um desafio crítico de engenharia. Quando dispositivos realizam cadastros e atualizações offline, a posterior reconexão ao servidor central pode resultar em conflitos graves se as requisições chegarem fora de ordem ou em duplicidade. Para mitigar esse problema e preservar a consistência lógica do banco de dados relacional ou NoSQL, as arquiteturas modernas de software utilizam estruturas sequenciais locais que armazenam cada mutação realizada pelo usuário e garantem o seu descarregamento ordenado assim que a rede é restabelecida.<br><br>Fonte: https://developer.android.com/topic/architecture/data-layer/offline-first?hl=pt-br (adaptado).</blockquote>
+  <p class="enunciado">No contexto do desenvolvimento de aplicações móveis com suporte a operação sem conexão com a internet, o uso de filas de operações (operation queues) é amplamente recomendado para gerenciar o envio de dados pendentes. Considerando as vantagens arquiteturais e operacionais dessa abordagem, assinale a(s) alternativa(s) correta(s) sobre a eficácia desse mecanismo na manutenção da ordem das transações sincronizadas.</p>
+  <ol class="alternativas" type="A">
+    <li>As filas de operações processam as requisições de maneira estritamente sequencial, assegurando que transações dependentes ocorram na ordem temporal correta.</li>
+    <li>O mecanismo de enfileiramento impede que ações idênticas sejam disparadas em duplicidade caso o usuário tente reenviar os dados várias vezes.</li>
+    <li>O uso de filas elimina totalmente a necessidade de gerenciar chaves primárias ou identificadores universais únicos (UUID) nos registros locais.</li>
+    <li>A estrutura garante o descarregamento ordenado das mutações para o servidor assim que a conectividade é restabelecida com sucesso.</li>
+    <li>As filas de operações impedem por si sós qualquer tipo de conflito de escrita simultânea originado por múltiplos dispositivos editando o mesmo dado.</li>
+  </ol>
+  <details class="resolucao">
+    <summary>Ver resolução</summary>
+    <p><strong>Alternativas corretas: A, B e D.</strong> As filas locais mantêm a cronologia das operações (A), descarregam as alterações pendentes de forma controlada quando a rede retorna (D) e evitam disparos repetidos das mesmas requisições (B).</p>
+    <p class="porque">Porquê: a alternativa C está incorreta porque identificadores locais como UUIDs continuam indispensáveis, e a E é falsa porque conflitos concorrentes distribuídos exigem políticas no servidor ou estratégias de resolução de dados.</p>
+  </details>
+</article>
+
+<article class="questao" id="q8">
+  <h2>Questão 08</h2>
+  <!-- sem imagem original: o enunciado ilustrado não veio na transcrição, só alternativas e resolução -->
+  <blockquote class="apoio">Durante a auditoria de segurança em um ecossistema de microsserviços em nuvem, a equipe de engenharia de software identificou falhas intermitentes e silenciosas em rotinas de autenticação baseadas em tokens de acesso OAuth 2.0. O sistema integrado apresentava interrupções abruptas no fluxo de login de um aplicativo móvel corporativo, sem que os relatórios genéricos de exceção do servidor registrassem o contexto detalhado das requisições HTTP rejeitadas. Para solucionar o problema, os desenvolvedores planejam reestruturar a estratégia de auditoria utilizando registros estruturados com diferentes níveis de severidade, permitindo isolar o momento exato da expiração ou corrupção do token antes que a sessão do usuário seja invalidada de forma imprevista.<br><br>Fonte: https://docs.aws.amazon.com/whitepapers/latest/sagemaker-studio-admin-best-practices/logging-and-monitoring.html?nc2=type_a_too-search (adaptado).</blockquote>
+  <p class="enunciado">Considerando as diretrizes avançadas de observabilidade e depuração em arquiteturas móveis conectadas a serviços remotos, analise o cenário em que uma equipe decide aprimorar a rastreabilidade de falhas críticas de autenticação. Assinale a alternativa que avalia corretamente a estratégia mais eficiente para a implementação de logs personalizados nesse contexto.</p>
+  <ol class="alternativas" type="A">
+    <li>Direcionar registros ao nível Verbose em produção, armazenando dados confidenciais de usuários no histórico local, de modo a rastrear falhas de autenticação no aplicativo móvel.</li>
+    <li>Inserir blocos genéricos de exceção para suprimir erros HTTP, trocando o registro de rastreio por notificações visuais simplificadas na interface de usuário do aplicativo móvel.</li>
+    <li>Utilizar tags estruturadas e níveis de erro para registrar o contexto das falhas, viabilizando a identificação de tokens expirados sem expor dados sigilosos no aplicativo móvel.</li>
+    <li>Configurar o sistema para desativar a geração de registros em requisições de rede, delegando a detecção de falhas de autenticação exclusivamente a varreduras manuais periódicas.</li>
+    <li>Centralizar a auditoria gravando credenciais e senhas em texto plano em arquivos locais legíveis, visando a recuperação imediata do acesso em caso de falhas de rede no servidor.</li>
+  </ol>
+  <details class="resolucao">
+    <summary>Ver resolução</summary>
+    <p><strong>Alternativa correta: C.</strong> Uma boa política de registos associa metadados e níveis estruturados (como warn ou error) para isolar falhas de sessão sem guardar credenciais puras, tokens sensíveis ou palavras-passe no dispositivo.</p>
+    <p class="porque">Porquê: gravar dados sensíveis em texto claro (A e E) gera riscos graves de segurança.</p>
+  </details>
+</article>
+
+<article class="questao" id="q9">
+  <h2>Questão 09</h2>
+  <blockquote class="apoio">No ecossistema atual de desenvolvimento de software, a criação de aplicativos móveis vai muito além da estética visual ou da quantidade de funcionalidades oferecidas. O conceito de experiência do usuário (User Experience, ou UX) abrange todas as facetas da interação de uma pessoa com a empresa, seus serviços e suas aplicações digitais. Quando princípios como acessibilidade universal, arquitetura de informação intuitiva e fluxos simplificados são aplicados de maneira integrada, o resultado direto reflete-se na redução da taxa de rejeição, no aumento do engajamento e na percepção positiva de valor pelo cliente, elevando significativamente os índices de retenção e satisfação no uso cotidiano de ferramentas tecnológicas.<br><br>Fonte: https://open.com.br/blog/o-que-e-ux-design/ (adaptado).</blockquote>
+  <p class="enunciado">Com base nos fundamentos de experiência do usuário (UX) aplicados ao desenvolvimento de soluções digitais, assinale a alternativa que identifica corretamente o principal impacto gerado pela aplicação correta desses conceitos na satisfação do usuário.</p>
+  <ol class="alternativas" type="A">
+    <li>Aumento expressivo da complexidade operacional do sistema, exigindo treinamentos técnicos avançados para a navegação cotidiana.</li>
+    <li>Redução da eficiência nas tarefas diárias, priorizando elementos puramente decorativos em detrimento da usabilidade prática.</li>
+    <li>Elevação do nível de engajamento e fidelização, promovendo interações mais intuitivas, acessíveis e alinhadas às necessidades reais.</li>
+    <li>Eliminação completa de atualizações corretivas de software, visto que o design elimina a ocorrência de quaisquer falhas de rede.</li>
+    <li>Restrição exclusiva da interface visual para públicos especializados, desconsiderando diretrizes de acessibilidade universal e inclusão.</li>
+  </ol>
+  <details class="resolucao">
+    <summary>Ver resolução</summary>
+    <p><strong>Alternativa correta: C.</strong> O desenho focado em UX reduz atritos, atende às reais necessidades do utilizador e torna a navegação intuitiva, aumentando a retenção e o envolvimento com a plataforma.</p>
+    <p class="porque">Porquê: UX bem aplicada = menos atrito + mais acessibilidade → mais engajamento; as demais alternativas descrevem anti-padrões (complexidade, decoração sobre usabilidade, promessas impossíveis).</p>
+  </details>
+</article>
+
+</main>
+<script src="../theme.js"></script>
+</body>
+</html>

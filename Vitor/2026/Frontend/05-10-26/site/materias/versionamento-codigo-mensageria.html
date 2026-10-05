@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Versionamento de Código e Sistemas de Mensageria — Revisão</title>
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+<header class="topo">
+  <h1>Versionamento de Código e Sistemas de Mensageria</h1>
+  <p><a class="voltar" href="../index.html">← todas as matérias</a> · Questões 1, 2, 3, 4, 12</p>
+</header>
+<main>
+<!-- fonte: transcrição colada na conversa em 2026-10-05 -->
+
+<article class="questao" id="q1">
+  <h2>Questão 01</h2>
+  <blockquote class="apoio">Durante as atividades práticas de desenvolvimento de software em uma turma de educação profissional, os estudantes aprenderam que o controle de versão é essencial para gerenciar o histórico de alterações em um projeto. Para iniciar o rastreamento de arquivos em uma nova pasta de trabalho e verificar quais documentos foram modificados ou ainda não são monitorados pelo sistema, utilizam-se comandos específicos do terminal que estruturam a base do repositório local.<br>Fonte: https://git-scm.com/book/pt-br/v2 (adaptado).</blockquote>
+  <p class="enunciado">No contexto dos comandos fundamentais do sistema de controle de versão Git, assinale a alternativa que identifica corretamente a função do comando <code>git init</code>.</p>
+  <ol class="alternativas" type="A">
+    <li>Criar um repositório remoto na nuvem para compartilhamento automático de código.</li>
+    <li>Inicializar um novo repositório Git local em um diretório de trabalho existente.</li>
+    <li>Salvar definitivamente as alterações correntes no histórico oficial do projeto.</li>
+    <li>Listar todos os arquivos que foram modificados e ainda não salvos no sistema.</li>
+    <li>Baixar uma cópia completa de um projeto existente a partir de um servidor externo.</li>
+  </ol>
+  <details class="resolucao">
+    <summary>Ver resolução</summary>
+    <p><strong>Alternativa correta: B.</strong> O comando <code>git init</code> cria a estrutura interna (.git) para transformar uma pasta local existente num repositório rastreado pelo Git.</p>
+    <p class="porque">Porquê: as outras ações correspondem a <code>git commit</code> (salvar histórico), <code>git status</code> (listar ficheiros modificados) e <code>git clone</code> (descarregar repositório remoto).</p>
+  </details>
+</article>
+
+<article class="questao" id="q2">
+  <h2>Questão 02</h2>
+  <blockquote class="apoio">Em uma equipe de desenvolvimento de software, a criação de um novo módulo de pagamentos evidenciou a complexidade do trabalho colaborativo. Para gerenciar as constantes atualizações e evitar o caos no código-fonte, a equipe adotou o Git Flow, uma metodologia que propõe a padronização rigorosa do repositório por meio de ramificações (branches) com responsabilidades específicas — como master (produção), develop (desenvolvimento) e feature (novas funcionalidades).<br><br>Utilizando essa estratégia, os desenvolvedores criaram ramificações independentes (features) para construir partes do módulo de pagamentos sem interferir na versão estável do sistema. No entanto, ao final do ciclo de desenvolvimento, a equipe precisou unificar todas as contribuições, lidando com o desafio técnico de integrar o código em cenários onde diferentes programadores alteraram o mesmo arquivo simultaneamente.<br><br>Fonte: Situação-problema elaborada com base na documentação oficial do Git e em publicação da Alura. Disponível em: https://git-scm.com/docs e https://www.alura.com.br/artigos/git-flow-o-que-e-como-quando-utilizar (adaptado).</blockquote>
+  <p class="enunciado">Considerando os conceitos de controle de versão e o gerenciamento de ramificações (branches), assinale a alternativa correta sobre o fluxo de desenvolvimento colaborativo:</p>
+  <ol class="alternativas" type="A">
+    <li>A criação de ramificações independentes (branches) substitui a necessidade de registrar o histórico com operações de commit, simplificando a resolução de conflitos de código.</li>
+    <li>O uso de ramificações permite isolar o desenvolvimento de novas funcionalidades, preservando a estabilidade do código principal até o momento da integração das alterações.</li>
+    <li>A consolidação do código paralelo na ramificação principal acontece de forma automatizada por meio da simples manipulação e salvamento de arquivos no diretório de trabalho local.</li>
+    <li>O fluxo de ramificações impõe uma fila sequencial de desenvolvimento, estruturando o processo para que cada programador aguarde a finalização da funcionalidade anterior.</li>
+    <li>O sistema de controle de versão prioriza a alteração mais recente e soluciona de maneira automatizada as divergências quando duas ramificações alteram a mesma linha de código.</li>
+  </ol>
+  <details class="resolucao">
+    <summary>Ver resolução</summary>
+    <p><strong>Alternativa correta: B.</strong> As ramificações isolam o trabalho em novas funcionalidades sem afetar a linha principal (main/master) ou o ramo de desenvolvimento até à conclusão e validação do código.</p>
+    <p class="porque">Porquê: conflitos na mesma linha não são resolvidos sozinhos e o Git não dispensa commits.</p>
+  </details>
+</article>
+
+<article class="questao" id="q3">
+  <h2>Questão 03</h2>
+  <blockquote class="apoio">No desenvolvimento ágil moderno, a revisão de código (Code Review) é uma prática essencial por meio da qual os desenvolvedores analisam o código-fonte de seus pares antes da integração à branch principal, geralmente utilizando Pull Requests. O objetivo primordial dessa prática transcende a simples verificação de sintaxe; trata-se de um fórum colaborativo para garantir a segurança, a manutenibilidade e a adesão aos padrões de qualidade da equipe. Para orientar essa análise crítica de forma objetiva, recomenda-se o uso de checklists padronizados que guiam os revisores na identificação de redundâncias e na validação de regras de arquitetura. Além disso, para que o processo seja sustentável, as organizações estabelecem diretrizes de comunicação que priorizam o feedback técnico, construtivo e impessoal. Mesmo com revisões rigorosas, o esforço humano atua em conjunto com as baterias de automação, formando camadas complementares de garantia de qualidade. Fonte: Texto elaborado com base nas práticas recomendadas de Code Review da Atlassian. Disponível em: https://www.atlassian.com/agile/software-development/code-reviews.</blockquote>
+  <p class="enunciado">Com base nas diretrizes de engenharia de software e nas boas práticas de revisão de código, analise cada uma das sentenças a seguir e indique se estão certas ou erradas:</p>
+  <ul class="alternativas">
+    <li>O processo de Code Review atua como um validador focado na compilação do software, delegando as análises arquiteturais e de legibilidade estrutural para a equipe de testes na fase final do projeto.</li>
+    <li>O emprego de checklists padronizados fornece um guia estruturado para os revisores verificarem sistematicamente aspectos fundamentais, como a clareza de variáveis e a ausência de duplicações no projeto.</li>
+    <li>A eficiência do Code Review requer uma cultura de colaboração técnica em que o feedback é direcionado de forma construtiva ao código-fonte, promovendo a disseminação coletiva do conhecimento entre a equipe.</li>
+    <li>A submissão de alterações por meio de um pull request e a aprovação pelos pares substituem a necessidade de implementar e executar baterias de testes unitários e de integração no sistema.</li>
+  </ul>
+  <details class="resolucao">
+    <summary>Ver resolução</summary>
+    <p><strong>Item 1: Errado.</strong> A compilação é tarefa automatizada das ferramentas de build e CI; o code review foca em arquitetura, boas práticas, segurança e legibilidade.</p>
+    <p><strong>Item 2: Certo.</strong> Checklists fornecem parâmetros objetivos de análise durante a inspeção do código.</p>
+    <p><strong>Item 3: Certo.</strong> A prática incentiva a troca técnica focada no código, de forma impessoal e instrutiva.</p>
+    <p><strong>Item 4: Errado.</strong> A revisão manual atua de forma complementar aos testes automatizados, sem os substituir.</p>
+    <p class="porque">Porquê: review cobre o que automação não vê (arquitetura, legibilidade) e vice-versa (compilação, regressões) — são camadas complementares.</p>
+  </details>
+</article>
+
+<article class="questao" id="q4">
+  <h2>Questão 04</h2>
+  <blockquote class="apoio">No ciclo de desenvolvimento de software moderno, a previsibilidade dos deploys é fundamental para a estabilidade do ambiente de produção. O uso de tags no Git é uma prática consolidada para marcar versões estáveis (releases). No entanto, um erro comum cometido por desenvolvedores júnior é realizar o tagging no repositório local após a finalização de uma funcionalidade, omitindo a sincronização desse marcador com o servidor remoto. Esse descompasso gera impactos diretos nas ferramentas automatizadas: pipelines de integração e entrega contínuas (CI/CD) perdem a referência da versão correta, resultando na publicação de artefatos obsoletos ou indevidos. A gestão eficiente das tags exige que elas sejam tratadas como parte integrante do fluxo de versionamento, garantindo que a equipe trabalhe sobre os mesmos marcos de referência.<br><br>Fonte: https://git-scm.com/docs/git-tag (adaptado).</blockquote>
+  <p class="enunciado">Considerando o impacto do versionamento no fluxo de entrega contínua (CI/CD) de uma equipe, analise o cenário em que um desenvolvedor cria a marcação v1.2.0 de um projeto em seu ambiente de trabalho local. Selecione a alternativa que descreve corretamente a consequência desta ação para a estabilidade do processo de deploy da equipe:</p>
+  <ol class="alternativas" type="A">
+    <li>O repositório remoto executará uma varredura automática nos ambientes de desenvolvimento para importar a tag local, assegurando a padronização das releases para toda a equipe.</li>
+    <li>A criação do marcador de versão local acionará os gatilhos do pipeline de integração contínua, promovendo a publicação imediata do artefato correspondente no ambiente de produção.</li>
+    <li>O commit associado à tag local sobrescreverá as referências do repositório remoto, garantindo que a equipe trabalhe sobre o mesmo marco de código durante a revisão.</li>
+    <li>A automação de entregas no servidor remoto desconhecerá o marcador v1.2.0, inviabilizando a execução de pipelines configurados para publicar ou restaurar essa versão específica em produção.</li>
+    <li>O sistema de versionamento consolidará a tag no histórico da ramificação principal durante a próxima operação de atualização, sincronizando o marco de versão com o servidor de forma implícita.</li>
+  </ol>
+  <details class="resolucao">
+    <summary>Ver resolução</summary>
+    <p><strong>Alternativa correta: D.</strong> As tags criadas localmente no Git não sobem sozinhas nas operações comuns de <code>git push</code>.</p>
+    <p class="porque">Porquê: se a tag não for enviada de forma explícita ao repositório remoto, o servidor de CI/CD não encontra a referência para acionar a publicação da versão correspondente.</p>
+  </details>
+</article>
+
+<article class="questao" id="q12">
+  <h2>Questão 12</h2>
+  <blockquote class="apoio">O padrão de filas de trabalho (work queues) é utilizado para distribuir tarefas demoradas entre múltiplos trabalhadores (consumers). O produtor envia uma mensagem para a fila, o broker a armazena temporariamente e o consumidor a retira da fila para efetuar o processamento.<br><br>Fonte: https://www.rabbitmq.com/tutorials/tutorial-two-python.</blockquote>
+  <p class="enunciado">Um ecossistema de processamento de pedidos precisa encaminhar requisições pesadas de validação de crédito para execução em segundo plano, garantindo que a aplicação principal responda ao cliente sem bloqueios e sem perda de dados. Ordene as etapas do fluxo de processamento assíncrono na sequência correta:</p>
+  <ul class="alternativas">
+    <li>O serviço produtor gera e envia a mensagem para o sistema de mensageria.</li>
+    <li>O sistema de mensageria roteia a mensagem recebida para a fila correspondente.</li>
+    <li>A mensagem é armazenada temporariamente na fila pelo broker.</li>
+    <li>O serviço consumidor retira a mensagem da fila e executa o processamento.</li>
+  </ul>
+  <details class="resolucao">
+    <summary>Ver resolução</summary>
+    <p><strong>Ordem correta:</strong> produtor envia → mensageria roteia → broker armazena → consumidor retira e processa.</p>
+    <p class="porque">Porquê: é o ciclo produtor → broker → consumidor; a ordem já apresentada é a sequência natural do fluxo assíncrono.</p>
+  </details>
+</article>
+
+</main>
+<script src="../theme.js"></script>
+</body>
+</html>

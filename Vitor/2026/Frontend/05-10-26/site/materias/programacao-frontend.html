@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Programação Front-End — Revisão</title>
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+<header class="topo">
+  <h1>Programação Front-End</h1>
+  <p><a class="voltar" href="../index.html">← todas as matérias</a> · Questões 14, 15, 16, 17</p>
+</header>
+<main>
+<!-- fonte: transcrição colada na conversa em 2026-10-05 -->
+
+<article class="questao" id="q14">
+  <h2>Questão 14</h2>
+  <blockquote class="apoio">"O Gulp é um automatizador de tarefas baseado em fluxos (streams) no Node.js. Ele permite definir tarefas em JavaScript e encadeá-las para automatizar processos do desenvolvimento, utilizando recursos como src(), dest(), series() e parallel(). Os arquivos podem passar por diferentes etapas de transformação por meio de pipelines de streams."<br><br>Fonte: https://gulpjs.com/docs/en/getting-started/working-with-files/.</blockquote>
+  <p class="enunciado">Um projeto web necessita de uma rotina automatizada no ambiente local que, a cada alteração nos arquivos fonte, realize sequencialmente a compilação do código Sass para CSS, a minificação do arquivo final e o recarregamento automático do navegador. Considerando as necessidades operacionais descritas no suporte, analise as alternativas e assinale aquela que apresenta a solução tecnicamente adequada para a automação desse fluxo.</p>
+  <ol class="alternativas" type="A">
+    <li>Utilizar o Nginx para efetuar a compilação de arquivos e a minificação de estilos CSS a cada alteração no código.</li>
+    <li>Utilizar o Gulp para definir tarefas automatizadas que processem o código Sass, minifiquem o CSS e otimizem os artefatos.</li>
+    <li>Utilizar o MySQL para gerenciar a execução em tempo real das rotinas de atualização de pré-processadores do front-end.</li>
+    <li>Utilizar o RabbitMQ para realizar a otimização direta de imagens e a substituição do servidor de arquivos estáticos.</li>
+    <li>Utilizar o Docker para realizar a alteração de sintaxe dos arquivos Sass diretamente no navegador do usuário final.</li>
+  </ol>
+  <details class="resolucao">
+    <summary>Ver resolução</summary>
+    <p><strong>Alternativa correta: B.</strong> O Gulp é um task runner voltado a automatizar rotinas de compilação de pré-processadores (como Sass), concatenação, compressão de arquivos e live reload no desenvolvimento web.</p>
+    <p class="porque">Porquê: Nginx serve arquivos, MySQL guarda dados, RabbitMQ enfileira mensagens, Docker isola ambientes — nenhum é task runner de build front-end.</p>
+  </details>
+</article>
+
+<article class="questao" id="q15">
+  <h2>Questão 15</h2>
+  <blockquote class="apoio">Atributos WAI-ARIA fornecem informações adicionais sobre a função, estado e propriedades de elementos de uma interface web para tecnologias assistivas. O atributo aria-expanded indica se um elemento controlável (como um menu sanfona ou modal) está atualmente recolhido ou expandido.<br><br>Fonte: https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-expanded (adaptado).</blockquote>
+  <p class="enunciado">A implementação do componente de menu expansível de uma página exige que leitores de tela consigam identificar dinamicamente quando o submenu está visível ou oculto para o usuário. Considere o fragmento de código do botão responsável por controlar a visibilidade do menu:</p>
+  <!-- ilegível no original: o fragmento HTML veio truncado ("Categoria ` `"); mantido como veio, sem adivinhar -->
+  <pre><code>Categoria
+
+` `</code></pre>
+  <p class="enunciado">Analisando o código em que a classe is-open indica que o elemento encontra-se visível, assinale a alternativa que preenche corretamente a lacuna do atributo ARIA.</p>
+  <ol class="alternativas" type="A">
+    <li>"true", indicando para a tecnologia assistiva que o conteúdo associado ao controle está atualmente expandido.</li>
+    <li>"visible", informando ao navegador que a lista deve alterar a propriedade de opacidade visual do elemento CSS.</li>
+    <li>"active", acionando o evento JavaScript que altera o estado do menu para visível durante a navegação.</li>
+    <li>"false", comunicando ao leitor de tela que o painel controlado está oculto e recolhido na interface.</li>
+    <li>"hidden", ocultando o botão de controle para que leitores de tela ignorem sua leitura na árvore do DOM.</li>
+  </ol>
+  <details class="resolucao">
+    <summary>Ver resolução</summary>
+    <p><strong>Alternativa correta: A.</strong> O atributo booleano de acessibilidade aria-expanded aceita "true" ou "false". Como o elemento filho associado possui a classe indicativa de abertura is-open, o valor correspondente é "true".</p>
+    <p class="porque">Porquê: "visible", "active" e "hidden" não são valores válidos de aria-expanded; "false" contradiz o estado visível (is-open).</p>
+  </details>
+</article>
+
+<article class="questao" id="q16">
+  <h2>Questão 16</h2>
+  <blockquote class="apoio">O CSS Grid Layout oferece um sistema de layout bidimensional baseado em colunas e linhas. A combinação de propriedades grid com media queries permite reestruturar a disposição espacial dos elementos de acordo com as características da tela.<br><br>Fonte: https://developer.mozilla.org/pt-BR/docs/Learn/CSS/CSS_layout/Grids (adaptado).</blockquote>
+  <p class="enunciado">A equipe de front-end desenvolveu a estrutura abaixo para organizar os dados de um painel de indicadores em telas desktop e dispositivos móveis:</p>
+  <pre><code>.container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+@media (max-width: 768px) {
+  .container {
+    grid-template-columns: 1fr;
+  }
+}</code></pre>
+  <p class="enunciado">Analise as regras CSS apresentadas no suporte técnico e assinale a alternativa que prevê corretamente o comportamento do layout.</p>
+  <ol class="alternativas" type="A">
+    <li>O layout renderiza três colunas de largura equivalente em telas maiores que 768px e passa a renderizar uma única coluna quando a largura da janela é igual ou inferior a 768px.</li>
+    <li>O layout mantém obrigatoriamente três colunas em todas as resoluções de tela, aplicando a regra @media apenas para remover o espaçamento de 16px.</li>
+    <li>O layout expande o número de colunas para quatro em dispositivos com telas menores que 768px devido à redistribuição da unidade proporcional 1fr.</li>
+    <li>A propriedade grid-template-columns: 1fr dentro da media query é ignorada pelo navegador por conflito direto com o tipo de exibição display: grid.</li>
+    <li>A estrutura utiliza o sistema unidimensional Flexbox e altera as colunas exclusivamente quando a resolução da tela ultrapassa 768px.</li>
+  </ol>
+  <details class="resolucao">
+    <summary>Ver resolução</summary>
+    <p><strong>Alternativa correta: A.</strong> A regra base define três colunas iguais de fração flexível (<code>repeat(3, 1fr)</code>). A consulta de mídia <code>@media (max-width: 768px)</code> sobrescreve essa divisão em visores de 768px para baixo, empilhando todo o conteúdo em uma coluna (<code>1fr</code>).</p>
+    <p class="porque">Porquê: max-width atua de 768px para baixo (não para cima); 1fr sozinho = 1 coluna; e o código usa Grid, não Flexbox.</p>
+  </details>
+</article>
+
+<article class="questao" id="q17">
+  <h2>Questão 17</h2>
+  <blockquote class="apoio">A API WebSocket é uma tecnologia que permite abrir uma sessão de comunicação interativa bidirecional entre o navegador do usuário e um servidor. Com essa API, é possível enviar mensagens para um servidor e receber respostas orientadas a eventos sem a necessidade de realizar consultas periódicas para obter atualizações.<br><br>Fonte: https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API/index.html (adaptado).</blockquote>
+  <p class="enunciado">Um dashboard precisa receber notificações instantâneas do servidor sempre que o estado de um processamento interno for alterado, sem a necessidade de realizar requisições HTTP repetitivas a cada poucos segundos. Preencha as lacunas: "A API [lacuna 1] permite estabelecer uma comunicação [lacuna 2] entre o navegador e o servidor sobre uma única conexão. Isso possibilita o envio e recebimento de dados orientados a [lacuna 3], eliminando a necessidade de consultas periódicas ao servidor, técnica conhecida como [lacuna 4]."</p>
+  <ul class="alternativas">
+    <li>Lacuna 1: WebSocket</li>
+    <li>Lacuna 2: bidirecional</li>
+    <li>Lacuna 3: eventos</li>
+    <li>Lacuna 4: polling</li>
+  </ul>
+  <details class="resolucao">
+    <summary>Ver resolução</summary>
+    <p><strong>Preenchimento correto: WebSocket · bidirecional · eventos · polling</strong>.</p>
+    <p class="porque">Porquê: a consulta contínua por meio de requisições HTTP repetidas é chamada de polling (ou long polling). O WebSocket resolve esse gargalo abrindo um canal persistente, bidirecional e orientado a eventos sobre uma única conexão TCP.</p>
+  </details>
+</article>
+
+</main>
+<script src="../theme.js"></script>
+</body>
+</html>

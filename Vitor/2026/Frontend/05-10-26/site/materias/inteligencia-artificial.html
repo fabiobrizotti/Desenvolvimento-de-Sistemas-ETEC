@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Inteligência Artificial — Revisão</title>
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+<header class="topo">
+  <h1>Inteligência Artificial</h1>
+  <p><a class="voltar" href="../index.html">← todas as matérias</a> · Questões 23, 24, 25, 26</p>
+</header>
+<main>
+<!-- fonte: transcrição colada na conversa em 2026-10-05 -->
+
+<article class="questao" id="q23">
+  <h2>Questão 23</h2>
+  <blockquote class="apoio">Em um projeto voltado para o desenvolvimento de soluções preditivas corporativas, cientistas de dados precisam estruturar um fluxo de trabalho padronizado que assegure a reprodutibilidade dos experimentos. A construção desse fluxo requer uma sequência lógica e contínua de operações que se inicia na obtenção das informações brutas, passa pelo tratamento e pela limpeza de inconsistências, avança para a modelagem matemática e culmina na mensuração de desempenho por meio de métricas específicas. A ausência de rigor nessa organização sequencial pode comprometer a qualidade preditiva e gerar conclusões equivocadas sobre o problema investigado.<br><br>Fonte: https://www.ibm.com/br-pt/think/topics/machine-learning-pipeline (adaptado).</blockquote>
+  <p class="enunciado">Com base na estrutura sequencial de um fluxo de trabalho (pipeline) em projetos de Machine Learning, assinale a alternativa que identifica corretamente a primeira etapa essencial desse processo.</p>
+  <ol class="alternativas" type="A">
+    <li>A avaliação do desempenho preditivo do modelo por meio de métricas estatísticas para garantir a confiabilidade das projeções geradas.</li>
+    <li>A execução do treinamento algorítmico por meio da aplicação de modelos matemáticos voltados para a extração de padrões ocultos.</li>
+    <li>A coleta e a organização inicial dos dados brutos em um conjunto estruturado, servindo como alicerce para todas as fases.</li>
+    <li>A implantação de códigos de automação e a disponibilização do sistema preditivo em servidores de nuvem para o usuário final.</li>
+    <li>A seleção e a transformação estrutural de atributos (feature engineering) para otimizar o processo de aprendizagem da máquina.</li>
+  </ol>
+  <details class="resolucao">
+    <summary>Ver resolução</summary>
+    <p><strong>Alternativa correta: C.</strong> O pipeline de Machine Learning começa necessariamente na coleta e na ingestão inicial dos dados brutos; etapas como feature engineering, treinamento algorítmico e validação pressupõem dados já obtidos e estruturados.</p>
+    <p class="porque">Porquê: sem dados não há o que limpar, treinar, avaliar ou implantar — todo o resto do pipeline depende da coleta.</p>
+  </details>
+</article>
+
+<article class="questao" id="q24">
+  <h2>Questão 24</h2>
+  <blockquote class="apoio">Em um projeto de modelagem preditiva voltado para o setor imobiliário, um grupo de cientistas de dados deparou-se com inconsistências nos resultados gerados por algoritmos baseados em distâncias euclidianas, como o KNN (K-Nearest Neighbors). Verificou-se que a variável correspondente à área do imóvel (medida em metros quadrados, variando de 50 a 500) era completamente ofuscada pela variável representativa do valor de mercado (medida em reais, variando de 200.000 a 2.500.000). Para corrigir essa distorção sem alterar a estrutura lógica interna dos algoritmos sensíveis à escala, a equipe discutiu a aplicação de métodos de normalização e padronização, ponderando sobre quais modelos realmente exigem tais transformações prévias.<br><br>Fonte: https://scikit-learn.org/stable/modules/preprocessing.html (adaptado).</blockquote>
+  <p class="enunciado">Com base nos conceitos de engenharia de features e na sensibilidade dos algoritmos de aprendizado de máquina em relação à escala dos dados, analise as afirmativas a seguir e classifique-as em certo ou errado:</p>
+  <ul class="alternativas">
+    <li>A) A normalização (Min-Max) e a padronização (Z-score) são técnicas de pré-processamento obrigatórias e igualmente eficazes para otimizar o desempenho de modelos baseados em árvores de decisão, como o Random Forest.</li>
+    <li>B) Algoritmos baseados no cálculo de distâncias, a exemplo do KNN e do K-means, são altamente sensíveis à magnitude das variáveis, exigindo que os atributos numéricos sejam redimensionados para evitar que feições de maior escala dominem o aprendizado.</li>
+    <li>C) A padronização transforma os dados numéricos de modo que apresentem média igual a zero e desvio padrão igual a um, sendo amplamente recomendada quando as feições seguem uma distribuição aproximada à normal.</li>
+    <li>D) A ausência de ajuste de escala em variáveis com amplitudes discrepantes compromete severamente a precisão de modelos lineares e de máquinas de vetores de suporte (SVM), pois as penalizações matemáticas passam a ser distorcidas pelas unidades de medida originais.</li>
+  </ul>
+  <details class="resolucao">
+    <summary>Ver resolução</summary>
+    <p><strong>Item A: Errado.</strong> Modelos baseados em partições em árvores (como Random Forest) são invariantes à escala monotônica das variáveis numéricas, dispensando normalização obrigatória.</p>
+    <p><strong>Item B: Certo.</strong> Algoritmos orientados a distâncias no espaço vetorial dependem diretamente da escala para não priorizarem atributos com valores numéricos absolutos maiores.</p>
+    <p><strong>Item C: Certo.</strong> O cálculo do Z-score subtrai a média amostral e divide pelo desvio padrão, resultando em média 0 e desvio padrão 1.</p>
+    <p><strong>Item D: Certo.</strong> Modelos regularizados (Ridge/Lasso) e SVMs sofrem distorções quando feições apresentam magnitudes desbalanceadas.</p>
+    <p class="porque">Porquê: regra prática — distância e regularização sentem escala (precisam padronizar); árvore decide por cortes, então escala não muda nada.</p>
+  </details>
+</article>
+
+<article class="questao" id="q25">
+  <h2>Questão 25</h2>
+  <blockquote class="apoio">Durante a preparação de um banco de dados voltado para a classificação de risco de clientes em uma fintech, a equipe de engenharia de dados deparou-se com colunas descritivas contendo informações textuais sobre o "tipo de moradia" (própria, alugada, cedida) e a "faixa de renda qualitativa" (baixa, média, alta). Como os algoritmos matemáticos de aprendizado de máquina exigem entradas estritamente numéricas, os analistas precisaram aplicar técnicas de transformação de atributos. No entanto, houve um debate técnico sobre qual método de codificação utilizar para evitar a inserção de vieses matemáticos indesejados e garantir que o modelo interpretasse corretamente a ausência de hierarquia entre as categorias nominais.<br><br>Fonte: https://scikit-learn.org/stable/modules/preprocessing.html (adaptado).</blockquote>
+  <p class="enunciado">Considerando os conceitos fundamentais de preparação de dados e as particularidades das técnicas de codificação de variáveis categóricas, assinale a alternativa que diferencia corretamente o Label Encoding do One-Hot Encoding:</p>
+  <ol class="alternativas" type="A">
+    <li>O Label Encoding calcula a relevância estatística de cada categoria para definir um peso numérico ponderado, enquanto o One-Hot Encoding traduz as palavras para valores decimais baseados em sua distribuição de frequência.</li>
+    <li>O Label Encoding converte cada categoria em valores numéricos inteiros sequenciais, enquanto o One-Hot Encoding cria colunas binárias independentes para cada classe existente na variável.</li>
+    <li>O One-Hot Encoding compacta a dimensionalidade do conjunto de dados ao agrupar características semelhantes, enquanto o Label Encoding distribui as informações textuais originais em grandes matrizes esparsas.</li>
+    <li>O Label Encoding converte as categorias textuais em novas matrizes binárias formadas por zeros e uns, enquanto o One-Hot Encoding transforma os textos nominais em uma única variável contínua.</li>
+    <li>O One-Hot Encoding estabelece uma relação de grandeza e ordem sequencial entre as categorias da base, enquanto o Label Encoding transforma os atributos nominais em múltiplas colunas independentes de mesma importância.</li>
+  </ol>
+  <details class="resolucao">
+    <summary>Ver resolução</summary>
+    <p><strong>Alternativa correta: B.</strong> O Label Encoding atribui inteiros sequenciais às categorias (0, 1, 2...), podendo induzir relações de ordem artificiais em variáveis nominais. O One-Hot Encoding divide cada classe em uma coluna própria binária (0 ou 1).</p>
+    <p class="porque">Porquê: Label = 1 coluna com ordem implícita (ruim para nominais); One-Hot = N colunas binárias sem ordem (custo: mais dimensionalidade).</p>
+  </details>
+</article>
+
+<article class="questao" id="q26">
+  <h2>Questão 26</h2>
+  <blockquote class="apoio">Em uma grande empresa de tecnologia, a equipe de engenharia de software implementou um sistema avançado de automação baseado em IA para otimizar a triagem de incidentes em repositórios de código. Ao contrário dos modelos estáticos tradicionais, que apenas respondem a um comando pontual do usuário, a nova arquitetura agêntica foi projetada para operar em ciclos contínuos de percepção, raciocínio e ação. O sistema é capaz de monitorar o ambiente de desenvolvimento, identificar gargalos de forma independente, planejar etapas complexas de correção e acionar ferramentas externas de forma autônoma até que o objetivo estipulado pela liderança técnica seja plenamente alcançado.<br><br>Fonte: https://www.anthropic.com/engineering/building-effective-agents (adaptado).</blockquote>
+  <p class="enunciado">Considerando as características fundamentais e o comportamento operacional dos agentes autônomos de inteligência artificial em ambientes complexos, analise a seguinte situação: um agente foi encarregado de identificar falhas críticas de segurança, estruturar um plano de correção e aplicá-lo no repositório sem supervisão humana contínua. Assinale a alternativa que avalia corretamente a atuação desse agente diante de tal cenário.</p>
+  <ol class="alternativas" type="A">
+    <li>A autonomia e a proatividade do agente manifestam-se na capacidade de autogerenciar o ciclo percepção-ação e tomar iniciativas para resolver o problema sem intervenção humana constante.</li>
+    <li>O agente limita-se estritamente a transformar uma única entrada textual em uma única saída estática, exigindo comandos manuais para cada etapa do processo corretivo.</li>
+    <li>A execução da tarefa comprova que o sistema opera por meio de regras fixas e determinísticas, incapazes de responder a mudanças imprevistas no ambiente de desenvolvimento.</li>
+    <li>O comportamento agêntico restringe-se a gerar relatórios teóricos de código, pois a arquitetura impede qualquer interação direta com ferramentas ou APIs externas.</li>
+    <li>A autonomia do sistema depende de uma validação humana obrigatória a cada microdecisão tomada, anulando a capacidade de o agente planejar suas próprias ações de forma proativa.</li>
+  </ol>
+  <details class="resolucao">
+    <summary>Ver resolução</summary>
+    <p><strong>Alternativa correta: A.</strong> A arquitetura agêntica distingue-se por operar em ciclos de percepção, planejamento e execução com ferramentas integradas, mantendo autonomia para perseguir a meta sem requerer comando manual a cada passo.</p>
+    <p class="porque">Porquê: o que diferencia agente de modelo estático é justamente o laço perceber → planejar → agir com ferramentas; as demais alternativas descrevem modelo pontual pergunta-resposta.</p>
+  </details>
+</article>
+
+</main>
+<script src="../theme.js"></script>
+</body>
+</html>

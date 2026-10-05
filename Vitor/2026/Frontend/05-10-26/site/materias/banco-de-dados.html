@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Modelagem e Desenvolvimento de Banco de Dados — Revisão</title>
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+<header class="topo">
+  <h1>Modelagem e Desenvolvimento de Banco de Dados</h1>
+  <p><a class="voltar" href="../index.html">← todas as matérias</a> · Questões 18, 19, 20, 21, 22</p>
+</header>
+<main>
+<!-- fonte: transcrição colada na conversa em 2026-10-05 -->
+
+<article class="questao" id="q18">
+  <h2>Questão 18</h2>
+  <blockquote class="apoio">A normalização de bancos de dados é um processo importante usado para organizar e estruturar bancos de dados relacionais. Esse processo garante que os dados sejam armazenados de forma a minimizar a redundância, simplificar a consulta e melhorar a integridade dos dados. Em termos mais simples, isso envolve a divisão de uma tabela grande e complexa em tabelas menores e mais simples, mantendo as relações de dados. A normalização é comumente usada ao lidar com grandes conjuntos de dados para evitar anomalias de inserção, atualização e exclusão, fundamentando-se em formas normais que regem a organização dos atributos.<br><br>Fonte: https://www.datacamp.com/pt/tutorial/normalization-in-sql (adaptado).</blockquote>
+  <p class="enunciado">No contexto de projeto e estruturação de bases de dados relacionais, a normalização atua como uma diretriz metódica para o aprimoramento da qualidade estrutural das tabelas. Considerando os fundamentos teóricos e práticos das formas normais (1FN, 2FN e 3FN), assinale a(s) alternativa(s) correta(s) sobre os impactos e os objetivos desse processo:</p>
+  <ol class="alternativas" type="A">
+    <li>A primeira forma normal (1FN) exige a eliminação de grupos de atributos repetidos, assegurando que cada célula da tabela contenha apenas um valor atômico e indivisível.</li>
+    <li>A segunda forma normal (2FN) foca na eliminação de dependências transitivas diretas entre colunas não pertencentes à chave primária de uma relação relacional.</li>
+    <li>A terceira forma normal (3FN) atua removendo dependências funcionais em que atributos não chave dependem de outros atributos que também não compõem a chave primária.</li>
+    <li>O processo de normalização eleva a redundância de dados intencionalmente para maximizar a duplicação de registros e acelerar operações de escrita em disco.</li>
+    <li>A aplicação correta das formas normais previne anomalias indesejadas de inserção, atualização e exclusão que corrompem a consistência do SGBD.</li>
+  </ol>
+  <details class="resolucao">
+    <summary>Ver resolução</summary>
+    <p><strong>Alternativas corretas: A, C e E</strong>.</p>
+    <p>A está correta: a 1FN impõe a atomicidade dos dados e o fim de campos multivalorados ou arrays dentro da célula.</p>
+    <p>B está errada: eliminar dependências transitivas entre atributos não chave é o papel da 3FN; a 2FN cuida da dependência funcional total em relação à chave primária composta.</p>
+    <p>C está correta: a 3FN remove dependências indiretas ou transitivas entre colunas comuns.</p>
+    <p>D está errada: o objetivo central da técnica é justamente cortar redundâncias desnecessárias.</p>
+    <p>E está correta: evita inconsistências estruturais nas operações de DML.</p>
+    <p class="porque">Porquê: 1FN = atomicidade; 2FN = dependência total da chave (não transitiva); 3FN = sem dependência transitiva; normalizar reduz redundância, não aumenta.</p>
+  </details>
+</article>
+
+<article class="questao" id="q19">
+  <h2>Questão 19</h2>
+  <blockquote class="apoio">O comando EXPLAIN fornece informações sobre como o MySQL executa uma instrução SELECT, detalhando como as tabelas são unidas e em qual ordem. Ele revela se a consulta utiliza índices existentes ou se realiza uma varredura completa na tabela (full table scan).<br><br>Fonte: https://dev.mysql.com/doc/refman/26.7/en/using-explain.html.</blockquote>
+  <p class="enunciado">Uma consulta de relatórios apresentou lentidão ao ser executada em uma tabela com mais de dois milhões de registros. A equipe técnica capturou a seguinte saída do gerenciador do banco de dados para analisar o comportamento:</p>
+  <pre><code>id: 1
+select_type: SIMPLE
+table: pedidos
+type: ALL
+possible_keys: NULL
+key: NULL
+rows: 2500000
+filtered: 10.00</code></pre>
+  <p class="enunciado">Analise os dados extraídos do diagnóstico e assinale a alternativa que interpreta corretamente o resultado da execução da consulta e indica a ação de otimização recomendada.</p>
+  <ol class="alternativas" type="A">
+    <li>A consulta está realizando uma leitura completa na tabela (type: ALL); recomenda-se criar um índice apropriado para as colunas utilizadas nos filtros da cláusula WHERE.</li>
+    <li>A consulta está utilizando perfeitamente o índice primário (possible_keys: NULL); recomenda-se aumentar a quantidade de colunas retornadas no SELECT.</li>
+    <li>A consulta foi executada utilizando otimização de memória temporária; recomenda-se remover os índices existentes para reduzir o tempo de resposta.</li>
+    <li>O banco de dados bloqueou a leitura devido ao número de registros (rows: 2500000); recomenda-se substituir a tabela relacional por arquivos texto.</li>
+    <li>O plano indica que o comando EXPLAIN falhou; recomenda-se reexecutar a instrução alterando o tipo de dados da tabela.</li>
+  </ol>
+  <details class="resolucao">
+    <summary>Ver resolução</summary>
+    <p><strong>Alternativa correta: A.</strong> O indicador <code>type: ALL</code> acompanhado de <code>key: NULL</code> aponta para um <em>full table scan</em>, ou seja, o motor do MySQL precisa ler os 2,5 milhões de registros no disco para filtrar apenas 10% deles. A ação corretiva direta é criar índices nas colunas pesquisadas no <code>WHERE</code>.</p>
+    <p class="porque">Porquê: <code>possible_keys: NULL</code> + <code>key: NULL</code> = nenhum índice disponível/usado; ler 2,5M de linhas para aproveitar 10% pede índice no filtro.</p>
+  </details>
+</article>
+
+<article class="questao" id="q20">
+  <h2>Questão 20</h2>
+  <blockquote class="apoio">"Em SQL, o operador LIKE é utilizado no filtro WHERE para buscar um padrão especificado em uma coluna. O caractere % representa zero, um ou múltiplos caracteres. A cláusula ORDER BY especifica a ordenação dos resultados, utilizando por padrão a ordem ascendente (ASC)."<br><br>Fonte: https://www.datacamp.com/pt/tutorial/sql-like-pattern-matching-tutorial.</blockquote>
+  <p class="enunciado">Um relatório do módulo de atendimento precisa listar todos os clientes cujo nome comece com a letra "A", apresentando os registros em ordem alfabética inversa de nome. Analise as instruções SQL abaixo e assinale a alternativa que executa corretamente a consulta conforme os requisitos solicitados.</p>
+  <ol class="alternativas" type="A">
+    <li><code>SELECT * FROM clientes HAVING nome LIKE 'A%' ORDER BY nome INVERT;</code></li>
+    <li><code>SELECT * FROM clientes WHERE nome LIKE '%A' ORDER BY nome ASC;</code></li>
+    <li><code>SELECT * FROM clientes WHERE nome = 'A%' ORDER BY nome DESC;</code></li>
+    <li><code>SELECT * FROM clientes WHERE nome LIKE '%A%' ORDER BY nome ASC;</code></li>
+    <li><code>SELECT * FROM clientes WHERE nome LIKE 'A%' ORDER BY nome DESC;</code></li>
+  </ol>
+  <details class="resolucao">
+    <summary>Ver resolução</summary>
+    <p><strong>Alternativa correta: E.</strong></p>
+    <p>Começar com a letra "A": utiliza-se a comparação com padrão <code>LIKE 'A%'</code> (o caractere coringa % fica no final). O operador = faz busca exata literal e não interpreta curingas.</p>
+    <p>Ordem alfabética inversa: usa-se <code>ORDER BY nome DESC</code> (ordenação decrescente). As opções com ASC ordenam de forma direta (A a Z) e INVERT não existe na sintaxe padrão do SQL.</p>
+    <p class="porque">Porquê: <code>'A%'</code> = começa com A; <code>'%A'</code> = termina com A; <code>'%A%'</code> = contém A; inversa = DESC.</p>
+  </details>
+</article>
+
+<article class="questao" id="q21">
+  <h2>Questão 21</h2>
+  <blockquote class="apoio">"Uma subconsulta (subquery) é uma instrução SELECT embutida dentro de outra consulta principal. Quando utilizada na cláusula WHERE combinada com o operador IN, a subconsulta avalia o conjunto de valores retornado para filtrar os registros da consulta externa."<br><br>Fonte: https://medium.com/@enzopolisel/guia-completo-de-sql-2af0384dd36e.</blockquote>
+  <p class="enunciado">A equipe de auditoria precisa consultar o nome de todos os funcionários que pertencem exclusivamente a departamentos localizados na filial regional (cujo identificador filial_id é igual a 10). Considere a estrutura da consulta SQL em elaboração:</p>
+  <pre><code>SELECT nome FROM funcionarios
+WHERE departamento_id ____ (SELECT id FROM departamentos WHERE filial_id = 10);</code></pre>
+  <p class="enunciado">Assinale a alternativa que preenche a lacuna da instrução com o operador correto para relacionar a coluna com o conjunto de resultados retornado pela subconsulta.</p>
+  <ol class="alternativas" type="A">
+    <li>LIKE</li>
+    <li>IN</li>
+    <li>BETWEEN</li>
+    <li>JOIN</li>
+    <li>GROUP BY</li>
+  </ol>
+  <details class="resolucao">
+    <summary>Ver resolução</summary>
+    <p><strong>Alternativa correta: B.</strong> O operador <code>IN</code> compara um valor com uma lista de valores fornecida explicitamente ou retornada por uma subconsulta interna.</p>
+    <p class="porque">Porquê: LIKE casa padrão de texto, BETWEEN casa intervalo, e JOIN/GROUP BY são cláusulas — nenhuma testa pertinência a um conjunto.</p>
+  </details>
+</article>
+
+<article class="questao" id="q22">
+  <h2>Questão 22</h2>
+  <blockquote class="apoio">"O operador UNION combina o resultado de duas ou mais consultas SELECT em um único conjunto, eliminando automaticamente as linhas duplicadas. O operador UNION ALL combina os resultados mantendo todas as linhas, inclusive as duplicadas, oferecendo melhor desempenho por evitar a etapa adicional de ordenação e deduplicação."<br><br>Fonte: https://learn.microsoft.com/pt-br/sql/t-sql/language-elements/set-operators-union-transact-sql?view=sql-server-ver17.</blockquote>
+  <p class="enunciado">Uma rotina precisa consolidar uma lista unificada contendo todos os e-mails cadastrados de clientes e fornecedores. Para essa regra de negócio, exige-se expressamente que e-mails idênticos que constem em ambos os cadastros não sejam repetidos na listagem final. Com base nos requisitos da regra de negócio descrita e no texto, assinale a alternativa que especifica a instrução SQL correta a ser utilizada.</p>
+  <ol class="alternativas" type="A">
+    <li>Utilizar o operador UNION, pois ele consolida os dados das consultas e remove automaticamente todas as duplicidades existentes no resultado.</li>
+    <li>Utilizar o operador UNION ALL, pois ele preserva todas as ocorrências de e-mails repetidos com o objetivo de acelerar a resposta do sistema.</li>
+    <li>Utilizar o operador JOIN ALL, pois ele realiza a junção cartesiana das tabelas envolvidas sem requerer nenhum campo em comum nas estruturas.</li>
+    <li>Utilizar a cláusula GROUP BY ALL, pois ela substitui a união de conjuntos ao agrupar os dados de todas as colunas em uma tabela consolidada.</li>
+    <li>Utilizar o operador INTERSECT, pois ele recupera os e-mails registrados em ambos os cadastros independentemente de existirem em duplicidade.</li>
+  </ol>
+  <details class="resolucao">
+    <summary>Ver resolução</summary>
+    <p><strong>Alternativa correta: A.</strong> O comando UNION junta os registros de duas ou mais consultas distintas e descarta repetições por padrão, ao passo que UNION ALL mantém as duplicatas.</p>
+    <p class="porque">Porquê: a regra exige <em>sem repetição</em> — UNION ALL preservaria duplicados, INTERSECT traria só a interseção, e JOIN ALL / GROUP BY ALL não existem para esse fim.</p>
+  </details>
+</article>
+
+</main>
+<script src="../theme.js"></script>
+</body>
+</html>
